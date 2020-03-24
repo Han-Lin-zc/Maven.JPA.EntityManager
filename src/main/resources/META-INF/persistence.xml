@@ -1,22 +1,20 @@
-<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             version="2.2"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-    <persistence-unit name="my-persistence-unit" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/3066"/>
-            <property name="javax.persistence.jdbc.user" value="hanlin"/>
-            <property name="javax.persistence.jdbc.password" value="pass"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+<persistence-unit name="pokemon-unit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <properties>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pokemon?serverTimezone=UTC"/>
+        <property name="javax.persistence.jdbc.user" value="hanlin"/>
+        <property name="javax.persistence.jdbc.password" value="pass"/>
+        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 
-        </properties>
-    </persistence-unit>
+    </properties>
+</persistence-unit>
 </persistence>
