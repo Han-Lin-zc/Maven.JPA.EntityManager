@@ -21,8 +21,21 @@ public class PokemonTrainer {
     private Integer speed;
     private Integer pokemon_id;
 
+    public PokemonTrainer() {
+    }
 
-    public PokemonTrainer() { }
+    public PokemonTrainer(int trainerId, int pokelevel, int hp, int maxhp, int attack, int defense, int spatk, int spdef, int speed, int pokemon_id) {
+        this.trainerid = trainerId;
+        this.pokelevel = pokelevel;
+        this.hp = hp;
+        this.maxhp = maxhp;
+        this.attack = attack;
+        this.defense = defense;
+        this.spatk = spatk;
+        this.spdef = spdef;
+        this.speed = speed;
+        this.pokemon_id = pokemon_id;
+    }
 
     public Integer getTrainerId() { return this.trainerid; }
 

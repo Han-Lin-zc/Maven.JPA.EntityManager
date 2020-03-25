@@ -1,6 +1,5 @@
 package services;
 
-
 import entities.PokemonTrainer;
 
 import javax.persistence.EntityManager;
@@ -18,6 +17,13 @@ public class PokemonTrainerService {
 
     public PokemonTrainer findById(Integer trainerId) {
         return em.find(PokemonTrainer.class, trainerId);
+    }
+
+
+    public void update(PokemonTrainer pokemonTrainer, Integer pokelevel) {
+        tx.begin();
+        pokemonTrainer.setPokeLevel(pokelevel);
+        tx.commit();
     }
 
     public PokemonTrainer create(PokemonTrainer pokemonTrainer) {
@@ -41,7 +47,5 @@ public class PokemonTrainerService {
         em.remove(pokemonTrainer);
         tx.commit();
     }
-
-    private void persistPokemonTrainer(PokemonTrainer pokemonTrainer) { em.persist(pokemonTrainer); }
 
 }
