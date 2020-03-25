@@ -21,6 +21,7 @@ public class PokemonTrainer {
     private Integer speed;
     private Integer pokemon_id;
 
+
     public PokemonTrainer() {
     }
 
