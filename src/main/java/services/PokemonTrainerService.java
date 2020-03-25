@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 
 
 public class PokemonTrainerService {
@@ -19,6 +20,12 @@ public class PokemonTrainerService {
         return em.find(PokemonTrainer.class, trainerId);
     }
 
+    public ArrayList<PokemonTrainer> findAllTrainers(){
+        ArrayList<PokemonTrainer> result = new ArrayList<>();
+        em.getTransaction().begin();
+        result = (ArrayList<PokemonTrainer>) em.createQuery("SELECT a FROM PokemonTrainer a WHERE a.trainerId < 10 ",PokemonTrainer.class).getResultList();
+        return result;
+    }
 
     public void update(PokemonTrainer pokemonTrainer, Integer pokelevel) {
         tx.begin();
